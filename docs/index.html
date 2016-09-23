@@ -29,14 +29,14 @@ title: Home
 <p>The following content is pulled from the Help Scout Docs API ⚡️.</p>
 {% for collection in site.helpscout_collections %}
   <div>
-    <h3><a href="{{ collection.url }}">{{ collection.title }}</a></h3>
+    <h3><a href="{{ site.baseurl }}{{ collection.url }}">{{ collection.title }}</a></h3>
     {% for category in site.helpscout_categories %}
       {% if category.collection_id == collection.collection_id and category.article_count > 0 %}
-        <h4><a href="{{ category.url }}">{{ category.title }}</a></h4>
+        <h4><a href="{{ site.baseurl }}{{ category.url }}">{{ category.title }}</a></h4>
         <ul>
           {% for article in site.helpscout_articles %}
             {% if article.category_ids contains category.category_id %}
-              <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+              <li><a href="{{ site.baseurl }}{{ article.url }}">{{ article.title }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
