@@ -3,26 +3,28 @@
 article_id: 57e599519033602e61d47581
 number: 17
 collection_id: 57e598fd9033602e61d4757e
-name: Insallation
-title: Insallation
+name: Installation
+title: Installation
 category_ids:
     - 57e59913c697914f21030df7
 related_article_ids: {  }
 created_at: '2016-09-23T21:06:25+00:00'
-updated_at: '2016-09-23T21:13:44+00:00'
-last_published_at: '2016-09-23T21:13:44+00:00'
+updated_at: '2016-09-23T21:29:42+00:00'
+last_published_at: '2016-09-23T21:29:42+00:00'
 layout: helpscout_article
 ---
 <h4>Install with Composer</h4><p>
 	Run the following command:</p>
 <pre>$ composer require tompedals/jekyllscout
 </pre><h4>Configure Jekyll Scout</h4><p>
-	Create a new file <code>.jekyllscout.yml</code> in the root of your Jekyll project.</p><p>
+	Create a new file 
+	<code>.jekyllscout.yml</code> in the root of your Jekyll project.</p><p>
 	Enter your Help Scout API key and the site ID. The site ID can be found in the URL of your Site Settings page in Help Scout. It will look a little like the example below.</p>
 <pre>api_key: secret
 site_id: 57e1a37c9033606c1955afc3
 </pre><h4>Configure your collections</h4><p>
-	Update your Jekyll <code>_config.yml</code> and add the following collections. This is how your Help Scout docs content will be made available to Jekyll.</p>
+	Update your Jekyll 
+	<code>_config.yml</code> and add the following collections. This is how your Help Scout docs content will be made available to Jekyll.</p>
 <pre>collections:
   helpscout_collections:
     output: true
@@ -33,6 +35,8 @@ site_id: 57e1a37c9033606c1955afc3
   helpscout_articles:
     output: true
     permalink: /article/:path/
-</pre><h4>Sync content</h4><p>Run the following command to sync your Help Scout Docs content as Jekyll pages.</p>
+</pre><h4>Sync content</h4><p>
+	Run the following command to sync your Help Scout Docs content as Jekyll pages.</p>
 <pre>$ ./vendor/bin/jekyllscout sync .
-</pre><p>This will create the relevant files within the configured collections directories. By default this will be <code>_helpscout_articles</code>, <code>_helpscout_categories</code> and <code>_helpscout_collections</code>.</p>
+</pre><p>
+	This will create the relevant files within the configured collections directories. By default this will be <code>_helpscout_articles</code>, <code>_helpscout_categories</code> and <code>_helpscout_collections</code>.</p>
