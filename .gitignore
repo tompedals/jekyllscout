@@ -1,0 +1,5 @@
+/composer.lock
+/docs/.jekyllscout.yml
+/docs/_site
+/phpunit.xml
+/vendor

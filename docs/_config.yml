@@ -1,0 +1,27 @@
+markdown: redcarpet
+highlighter: rouge
+
+permalink: pretty
+
+title: Jekyll Scout
+tagline: 'A Jekyll front-end for Help Scout docs'
+description: ''
+url: http://tompedals.github.io/jekyllscout
+baseurl: /
+
+author:
+  name: 'Tom Graham'
+  url: https://twitter.com/tompedals
+
+gems: [jekyll-paginate]
+
+collections:
+  helpscout_collections:
+    output: true
+    permalink: /collection/:path/
+  helpscout_categories:
+    output: true
+    permalink: /category/:path/
+  helpscout_articles:
+    output: true
+    permalink: /article/:path/

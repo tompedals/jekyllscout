@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="page">
+  <h1 class="page-title">{{ page.title }}</h1>
+  {{ content }}
+</div>
+
+
+{% for category in site.helpscout_categories %}
+  {% if page.category_ids contains category.category_id and category.article_count > 1 %}
+    <h3>{{ category.name }}</h3>
+    <ul>
+      {% for article in site.helpscout_articles %}
+        {% if article.category_ids contains category.category_id and article.url != page.url %}
+          <li><a href="{{ article.url }}">{{ article.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+error_reporting(-1);
+ini_set('display_errors', true);
+
+// Set the default timezone
+if (ini_get('date.timezone') === '') {
+    date_default_timezone_set('UTC');
+}
+
+use JekyllScout\Cli\Application;
+
+// Require the relevant autoloader
+$autoloadPath = __DIR__.'/../../../autoload.php';
+if (!file_exists(__DIR__.'/../../../autoload.php')) {
+    $autoloadPath = __DIR__.'/../vendor/autoload.php';
+}
+
+require_once $autoloadPath;
+
+$application = new Application();
+$application->run();

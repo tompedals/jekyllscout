@@ -1,0 +1,27 @@
+{
+    "name": "tompedals/jekyllscout",
+    "description": "A Jekyll front-end for Help Scout docs",
+    "type": "library",
+    "require": {
+        "php": ">=5.6",
+        "symfony/console": "^3.1",
+        "symfony/filesystem": "^3.1",
+        "symfony/yaml": "^3.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "mockery/mockery": "*",
+        "mikey179/vfsStream": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "JekyllScout\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JekyllScout\\": "tests/"
+        }
+    },
+    "bin": ["bin/jekyllscout"]
+}

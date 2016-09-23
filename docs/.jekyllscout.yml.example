@@ -1,0 +1,11 @@
+api_key: secret
+site_id: 57e1a37c9033606c1955afc3
+
+article_collection: helpscout_articles
+article_layout: helpscout_article
+
+category_collection: helpscout_categories
+category_layout: helpscout_category
+
+collection_collection: helpscout_collections
+collection_layout: helpscout_collection
