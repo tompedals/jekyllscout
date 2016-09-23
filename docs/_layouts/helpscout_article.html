@@ -14,7 +14,7 @@ layout: default
     <ul>
       {% for article in site.helpscout_articles %}
         {% if article.category_ids contains category.category_id and article.url != page.url %}
-          <li><a href="{{ article.url }}">{{ article.name }}</a></li>
+          <li><a href="{{ site.baseurl }}/{{ article.url }}">{{ article.name }}</a></li>
         {% endif %}
       {% endfor %}
     </ul>
