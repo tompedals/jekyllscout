@@ -6,8 +6,8 @@ permalink: pretty
 title: Jekyll Scout
 tagline: 'A Jekyll front-end for Help Scout docs'
 description: ''
-url: http://tompedals.github.io/jekyllscout
-baseurl: /
+url: http://tompedals.github.io
+baseurl: /jekyllscout
 
 author:
   name: 'Tom Graham'
