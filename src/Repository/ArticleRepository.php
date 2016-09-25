@@ -23,7 +23,7 @@ class ArticleRepository
      */
     public function __construct(DocsClient $client, CollectionRepository $collectionRepository)
     {
-        $this->client               = $client;
+        $this->client = $client;
         $this->collectionRepository = $collectionRepository;
     }
 
@@ -32,7 +32,7 @@ class ArticleRepository
      */
     public function fetchAll()
     {
-        $this->items = [];
+        $this->items = array();
 
         foreach ($this->collectionRepository->getAll() as $collection) {
             $page = 1;
@@ -61,6 +61,7 @@ class ArticleRepository
 
     /**
      * @param string $id
+     *
      * @return Article
      */
     public function fetch($id)

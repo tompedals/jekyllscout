@@ -24,11 +24,11 @@ class Application extends BaseApplication
     {
         parent::__construct('jekyllscout', self::VERSION);
 
-        $docsClient           = new DocsClient(new Client());
+        $docsClient = new DocsClient(new Client());
         $collectionRepository = new CollectionRepository($docsClient);
-        $categoryRepository   = new CategoryRepository($docsClient, $collectionRepository);
-        $articleRepository    = new ArticleRepository($docsClient, $collectionRepository);
-        $pageWriter           = new PageWriter(new Filesystem());
+        $categoryRepository = new CategoryRepository($docsClient, $collectionRepository);
+        $articleRepository = new ArticleRepository($docsClient, $collectionRepository);
+        $pageWriter = new PageWriter(new Filesystem());
 
         $this->add(new SyncCommand(
             'sync',
@@ -36,7 +36,7 @@ class Application extends BaseApplication
             new ConfigReader(),
             new CollectionSyncer($collectionRepository, $pageWriter),
             new CategorySyncer($categoryRepository, $collectionRepository, $pageWriter),
-            new ArticleSyncer($articleRepository, $collectionRepository, $categoryRepository, $pageWriter)
+            new ArticleSyncer($articleRepository, $collectionRepository, $pageWriter)
         ));
     }
 }

@@ -59,15 +59,15 @@ class Category
      */
     public function __construct(array $data)
     {
-        $this->id           = isset($data['id']) ? $data['id'] : null;
-        $this->number       = isset($data['number']) ? $data['number'] : null;
-        $this->slug         = isset($data['slug']) ? $data['slug'] : null;
+        $this->id = isset($data['id']) ? $data['id'] : null;
+        $this->number = isset($data['number']) ? $data['number'] : null;
+        $this->slug = isset($data['slug']) ? $data['slug'] : null;
         $this->collectionId = isset($data['collectionId']) ? $data['collectionId'] : null;
-        $this->order        = isset($data['order']) ? $data['order'] : null;
-        $this->name         = isset($data['name']) ? $data['name'] : null;
+        $this->order = isset($data['order']) ? $data['order'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
         $this->articleCount = isset($data['articleCount']) ? $data['articleCount'] : null;
-        $this->createdAt    = isset($data['createdAt']) ? new DateTime($data['createdAt']) : null;
-        $this->updatedAt    = isset($data['updatedAt']) ? new DateTime($data['updatedAt']) : null;
+        $this->createdAt = isset($data['createdAt']) ? new DateTime($data['createdAt']) : null;
+        $this->updatedAt = isset($data['updatedAt']) ? new DateTime($data['updatedAt']) : null;
     }
 
     /**

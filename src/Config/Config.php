@@ -17,7 +17,7 @@ class Config
     /**
      * @var string
      */
-    private $articleCollection = 'articles';
+    private $articleCollection = 'helpscout_articles';
 
     /**
      * @var string
@@ -27,7 +27,7 @@ class Config
     /**
      * @var string
      */
-    private $categoryCollection = 'categories';
+    private $categoryCollection = 'helpscout_categories';
 
     /**
      * @var string
@@ -37,7 +37,7 @@ class Config
     /**
      * @var string
      */
-    private $collectionCollection = 'collections';
+    private $collectionCollection = 'helpscout_collections';
 
     /**
      * @var string
@@ -108,7 +108,7 @@ class Config
      */
     public function getArticleCollectionPath($rootPath)
     {
-        return $rootPath . '/_' . $this->articleCollection;
+        return $rootPath.'/_'.$this->articleCollection;
     }
 
     /**
@@ -132,7 +132,7 @@ class Config
      */
     public function getCategoryCollectionPath($rootPath)
     {
-        return $rootPath . '/_' . $this->categoryCollection;
+        return $rootPath.'/_'.$this->categoryCollection;
     }
 
     /**
@@ -156,7 +156,7 @@ class Config
      */
     public function getCollectionCollectionPath($rootPath)
     {
-        return $rootPath . '/_' . $this->collectionCollection;
+        return $rootPath.'/_'.$this->collectionCollection;
     }
 
     /**

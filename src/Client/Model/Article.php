@@ -29,9 +29,9 @@ class Article extends ArticleRef
     {
         parent::__construct($data);
 
-        $this->text              = isset($data['text']) ? $data['text'] : null;
-        $this->categoryIds       = isset($data['categories']) ? $data['categories'] : [];
-        $this->relatedArticleIds = isset($data['related']) ? $data['related'] : [];
+        $this->text = isset($data['text']) ? $data['text'] : null;
+        $this->categoryIds = isset($data['categories']) ? $data['categories'] : array();
+        $this->relatedArticleIds = isset($data['related']) ? $data['related'] : array();
     }
 
     /**

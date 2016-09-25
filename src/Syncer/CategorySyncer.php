@@ -34,9 +34,9 @@ class CategorySyncer
         CollectionRepository $collectionRepository,
         PageWriter $pageWriter
     ) {
-        $this->categoryRepository   = $categoryRepository;
+        $this->categoryRepository = $categoryRepository;
         $this->collectionRepository = $collectionRepository;
-        $this->pageWriter           = $pageWriter;
+        $this->pageWriter = $pageWriter;
     }
 
     /**
@@ -51,10 +51,10 @@ class CategorySyncer
         foreach ($categories as $category) {
             $collection = $this->collectionRepository->get($category->getCollectionId());
             if ($collection->isPublic()) {
-                $frontmatter           = $this->getFrontmatter($category);
+                $frontmatter = $this->getFrontmatter($category);
                 $frontmatter['layout'] = $layout;
 
-                $this->pageWriter->write($collectionPath . $this->getPath($category), '', $frontmatter);
+                $this->pageWriter->write($collectionPath.$this->getPath($category), '', $frontmatter);
             }
         }
     }
@@ -72,16 +72,16 @@ class CategorySyncer
      */
     private function getFrontmatter(Category $category)
     {
-        return [
-            'category_id'           => $category->getId(),
-            'number'                => $category->getNumber(),
-            'collection_id'         => $category->getCollectionId(),
-            'order'                 => $category->getOrder(),
-            'name'                  => $category->getName(),
-            'title'                 => $category->getName(),
-            'article_count'         => $category->getArticleCount(),
-            'created_at'            => $category->getCreatedAt()->format('c'),
-            'updated_at'            => $category->getUpdatedAt()->format('c'),
-        ];
+        return array(
+            'category_id' => $category->getId(),
+            'number' => $category->getNumber(),
+            'collection_id' => $category->getCollectionId(),
+            'order' => $category->getOrder(),
+            'name' => $category->getName(),
+            'title' => $category->getName(),
+            'article_count' => $category->getArticleCount(),
+            'created_at' => $category->getCreatedAt()->format('c'),
+            'updated_at' => $category->getUpdatedAt()->format('c'),
+        );
     }
 }

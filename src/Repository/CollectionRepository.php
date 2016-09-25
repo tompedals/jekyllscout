@@ -27,11 +27,12 @@ class CollectionRepository
 
     /**
      * @param string $siteId
+     *
      * @return Collection[]
      */
     public function fetchAll($siteId)
     {
-        $this->items = [];
+        $this->items = array();
 
         $page = 1;
         while ($page !== false) {
@@ -58,6 +59,7 @@ class CollectionRepository
 
     /**
      * @param string $id
+     *
      * @return Collection
      */
     public function get($id)

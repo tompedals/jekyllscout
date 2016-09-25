@@ -58,11 +58,11 @@ class SyncCommand extends Command
     ) {
         parent::__construct($name);
 
-        $this->docsClient       = $docsClient;
-        $this->configReader     = $configReader;
+        $this->docsClient = $docsClient;
+        $this->configReader = $configReader;
         $this->collectionSyncer = $collectionSyncer;
-        $this->categorySyncer   = $categorySyncer;
-        $this->articleSyncer    = $articleSyncer;
+        $this->categorySyncer = $categorySyncer;
+        $this->articleSyncer = $articleSyncer;
     }
 
     /**

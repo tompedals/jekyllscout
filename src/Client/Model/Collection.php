@@ -9,7 +9,7 @@ use DateTime;
  */
 class Collection
 {
-    const VISIBILITY_PUBLIC  = 'public';
+    const VISIBILITY_PUBLIC = 'public';
     const VISIBILITY_PRIVATE = 'private';
 
     /**
@@ -62,15 +62,15 @@ class Collection
      */
     public function __construct(array $data)
     {
-        $this->id         = isset($data['id']) ? $data['id'] : null;
-        $this->number     = isset($data['number']) ? $data['number'] : null;
-        $this->siteId     = isset($data['siteId']) ? $data['siteId'] : null;
-        $this->slug       = isset($data['slug']) ? $data['slug'] : null;
+        $this->id = isset($data['id']) ? $data['id'] : null;
+        $this->number = isset($data['number']) ? $data['number'] : null;
+        $this->siteId = isset($data['siteId']) ? $data['siteId'] : null;
+        $this->slug = isset($data['slug']) ? $data['slug'] : null;
         $this->visibility = isset($data['visibility']) ? $data['visibility'] : null;
-        $this->order      = isset($data['order']) ? $data['order'] : null;
-        $this->name       = isset($data['name']) ? $data['name'] : null;
-        $this->createdAt  = isset($data['createdAt']) ? new DateTime($data['createdAt']) : null;
-        $this->updatedAt  = isset($data['updatedAt']) ? new DateTime($data['updatedAt']) : null;
+        $this->order = isset($data['order']) ? $data['order'] : null;
+        $this->name = isset($data['name']) ? $data['name'] : null;
+        $this->createdAt = isset($data['createdAt']) ? new DateTime($data['createdAt']) : null;
+        $this->updatedAt = isset($data['updatedAt']) ? new DateTime($data['updatedAt']) : null;
     }
 
     /**

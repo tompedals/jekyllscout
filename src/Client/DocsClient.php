@@ -44,13 +44,14 @@ class DocsClient
      * @param string $collectionId
      * @param int $page
      * @param int $pageSize
+     *
      * @return Category[]
      */
     public function listCategories($collectionId, $page = 1, $pageSize = 50)
     {
-        $response = $this->get(self::BASE_URL . sprintf('/collections/%s/categories', $collectionId));
+        $response = $this->get(self::BASE_URL.sprintf('/collections/%s/categories', $collectionId));
 
-        $categories = [];
+        $categories = array();
         foreach ($response['categories']['items'] as $data) {
             $categories[] = new Category($data);
         }
@@ -70,7 +71,7 @@ class DocsClient
      */
     public function getCategory($categoryId)
     {
-        $response = $this->get(self::BASE_URL . sprintf('/categories/%s', $categoryId));
+        $response = $this->get(self::BASE_URL.sprintf('/categories/%s', $categoryId));
 
         return new Category($response['category']);
     }
@@ -78,13 +79,14 @@ class DocsClient
     /**
      * @param int $page
      * @param int $pageSize
+     *
      * @return Collection[]
      */
     public function listCollections($page = 1, $pageSize = 50)
     {
-        $response = $this->get(self::BASE_URL . '/collections');
+        $response = $this->get(self::BASE_URL.'/collections');
 
-        $collections = [];
+        $collections = array();
         foreach ($response['collections']['items'] as $data) {
             $collections[] = new Collection($data);
         }
@@ -104,7 +106,7 @@ class DocsClient
      */
     public function getCollection($collectionId)
     {
-        $response = $this->get(self::BASE_URL . sprintf('/collections/%s', $collectionId));
+        $response = $this->get(self::BASE_URL.sprintf('/collections/%s', $collectionId));
 
         return new Collection($response['collection']);
     }
@@ -118,15 +120,15 @@ class DocsClient
      */
     public function listArticles($collectionId, $page = 1, $pageSize = 50)
     {
-        $response = $this->get(self::BASE_URL . sprintf('/collections/%s/articles', $collectionId), [
-            'query' => [
-                'page'     => $page,
+        $response = $this->get(self::BASE_URL.sprintf('/collections/%s/articles', $collectionId), array(
+            'query' => array(
+                'page' => $page,
                 'pageSize' => $pageSize,
-                'status'   => 'published',
-            ],
-        ]);
+                'status' => 'published',
+            ),
+        ));
 
-        $articleRefs = [];
+        $articleRefs = array();
         foreach ($response['articles']['items'] as $data) {
             $articleRefs[] = new ArticleRef($data);
         }
@@ -146,7 +148,7 @@ class DocsClient
      */
     public function getArticle($articleId)
     {
-        $response = $this->get(self::BASE_URL . sprintf('/articles/%s', $articleId));
+        $response = $this->get(self::BASE_URL.sprintf('/articles/%s', $articleId));
 
         return new Article($response['article']);
     }
@@ -157,7 +159,7 @@ class DocsClient
      *
      * @return array
      */
-    private function get($url, array $options = [])
+    private function get($url, array $options = array())
     {
         return $this->getResponseContent($this->rawRequest('GET', $url, $options));
     }
@@ -169,10 +171,10 @@ class DocsClient
      *
      * @return ResponseInterface
      */
-    private function rawRequest($method, $url, array $options = [])
+    private function rawRequest($method, $url, array $options = array())
     {
         // Authenticate all requests with the API key and a dummy password
-        $options['auth'] = [$this->apiKey, 'X'];
+        $options['auth'] = array($this->apiKey, 'X');
 
         return $this->httpClient->request($method, $url, $options);
     }
@@ -186,7 +188,7 @@ class DocsClient
     {
         $content = $rawResponse->getBody();
         if (!$content) {
-            return [];
+            return array();
         }
 
         return json_decode($content, true);

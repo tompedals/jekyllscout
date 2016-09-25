@@ -27,7 +27,7 @@ class CollectionSyncer
         PageWriter $pageWriter
     ) {
         $this->collectionRepository = $collectionRepository;
-        $this->pageWriter           = $pageWriter;
+        $this->pageWriter = $pageWriter;
     }
 
     /**
@@ -42,10 +42,10 @@ class CollectionSyncer
         $collections = $this->collectionRepository->fetchAll($siteId);
         foreach ($collections as $collection) {
             if ($collection->isPublic()) {
-                $frontmatter           = $this->getFrontmatter($collection);
+                $frontmatter = $this->getFrontmatter($collection);
                 $frontmatter['layout'] = $layout;
 
-                $this->pageWriter->write($collectionPath . $this->getPath($collection), '', $frontmatter);
+                $this->pageWriter->write($collectionPath.$this->getPath($collection), '', $frontmatter);
             }
         }
     }
@@ -63,14 +63,14 @@ class CollectionSyncer
      */
     private function getFrontmatter(Collection $collection)
     {
-        return [
-            'collection_id'        => $collection->getId(),
-            'number'               => $collection->getNumber(),
-            'order'                => $collection->getOrder(),
-            'name'                 => $collection->getName(),
-            'title'                => $collection->getName(),
-            'created_at'           => $collection->getCreatedAt()->format('c'),
-            'updated_at'           => $collection->getUpdatedAt()->format('c'),
-        ];
+        return array(
+            'collection_id' => $collection->getId(),
+            'number' => $collection->getNumber(),
+            'order' => $collection->getOrder(),
+            'name' => $collection->getName(),
+            'title' => $collection->getName(),
+            'created_at' => $collection->getCreatedAt()->format('c'),
+            'updated_at' => $collection->getUpdatedAt()->format('c'),
+        );
     }
 }

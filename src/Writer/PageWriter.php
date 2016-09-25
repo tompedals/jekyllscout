@@ -48,7 +48,7 @@ class PageWriter
             );
         }
 
-        file_put_contents($path, $frontmatterString . $content);
+        file_put_contents($path, $frontmatterString.$content);
     }
 
     /**

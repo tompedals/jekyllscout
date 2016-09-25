@@ -26,7 +26,7 @@ class ResourceCollection implements Countable, IteratorAggregate
     /**
      * @var array
      */
-    private $items = [];
+    private $items = array();
 
     /**
      * @param int $page
@@ -36,10 +36,10 @@ class ResourceCollection implements Countable, IteratorAggregate
      */
     public function __construct($page, $totalPages, $totalCount, array $items)
     {
-        $this->page       = $page;
+        $this->page = $page;
         $this->totalPages = $totalPages;
         $this->totalCount = $totalCount;
-        $this->items      = $items;
+        $this->items = $items;
     }
 
     /**
