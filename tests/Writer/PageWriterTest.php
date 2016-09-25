@@ -27,7 +27,7 @@ class PageWriterTest extends \PHPUnit_Framework_TestCase
     public function testWriteWithEmptyFrontmatter()
     {
         $path = vfsStream::url('root/test.html');
-        $this->pageWriter->write($path, '<p></p>', []);
+        $this->pageWriter->write($path, '<p></p>', array());
 
         $this->assertSame('<p></p>', file_get_contents($path));
     }
@@ -35,10 +35,10 @@ class PageWriterTest extends \PHPUnit_Framework_TestCase
     public function testWriteWithFrontmatter()
     {
         $path = vfsStream::url('root/test.html');
-        $this->pageWriter->write($path, '<p></p>', [
-            'name'   => 'Test',
+        $this->pageWriter->write($path, '<p></p>', array(
+            'name' => 'Test',
             'number' => 123,
-        ]);
+        ));
 
         $expectedContents = <<<'PAGE'
 ---

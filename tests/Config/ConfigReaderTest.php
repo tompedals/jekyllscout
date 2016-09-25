@@ -18,7 +18,7 @@ class ConfigReaderTest extends \PHPUnit_Framework_TestCase
     {
         $this->expectException(InvalidArgumentException::class);
 
-        vfsStream::setup('root', null, []);
+        vfsStream::setup('root', null, array());
 
         $this->configReader->read(vfsStream::url('root'));
     }
@@ -38,9 +38,9 @@ collection_collection: collections
 collection_layout: collection
 YAML;
 
-        vfsStream::setup('root', null, [
+        vfsStream::setup('root', null, array(
             '.jekyllscout' => $yaml,
-        ]);
+        ));
 
         $config = $this->configReader->read(vfsStream::url('root'));
 

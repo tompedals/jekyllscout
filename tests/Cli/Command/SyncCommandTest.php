@@ -13,7 +13,7 @@ use Mockery;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Tester\CommandTester;
 
-class CreateTasksCommandTest extends \PHPUnit_Framework_TestCase
+class SyncCommandTest extends \PHPUnit_Framework_TestCase
 {
     private $docsClient;
     private $configReader;
@@ -24,11 +24,11 @@ class CreateTasksCommandTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->docsClient       = Mockery::mock(DocsClient::class);
-        $this->configReader     = Mockery::mock(ConfigReader::class);
+        $this->docsClient = Mockery::mock(DocsClient::class);
+        $this->configReader = Mockery::mock(ConfigReader::class);
         $this->collectionSyncer = Mockery::mock(CollectionSyncer::class);
-        $this->categorySyncer   = Mockery::mock(CategorySyncer::class);
-        $this->articleSyncer    = Mockery::mock(ArticleSyncer::class);
+        $this->categorySyncer = Mockery::mock(CategorySyncer::class);
+        $this->articleSyncer = Mockery::mock(ArticleSyncer::class);
 
         $this->command = new SyncCommand(
             'test',
@@ -45,17 +45,17 @@ class CreateTasksCommandTest extends \PHPUnit_Framework_TestCase
         $this->expectException(InvalidArgumentException::class);
 
         $commandTester = new CommandTester($this->command);
-        $commandTester->execute([
-            'path' => __DIR__ . '/doesnotexist',
-        ]);
+        $commandTester->execute(array(
+            'path' => __DIR__.'/doesnotexist',
+        ));
     }
 
     public function testSyncs()
     {
-        $config = new Config([
+        $config = new Config(array(
             'api_key' => 'secret',
             'site_id' => '123',
-        ]);
+        ));
         $this->configReader->shouldReceive('read')
             ->with(__DIR__)
             ->andReturn($config)
@@ -66,20 +66,20 @@ class CreateTasksCommandTest extends \PHPUnit_Framework_TestCase
             ->once();
 
         $this->collectionSyncer->shouldReceive('sync')
-            ->with(__DIR__ . '/_collections', '123')
+            ->with(__DIR__.'/_helpscout_collections', '123', 'collection')
             ->once();
 
         $this->categorySyncer->shouldReceive('sync')
-            ->with(__DIR__ . '/_categories')
+            ->with(__DIR__.'/_helpscout_categories', 'category')
             ->once();
 
         $this->articleSyncer->shouldReceive('sync')
-            ->with(__DIR__ . '/_articles')
+            ->with(__DIR__.'/_helpscout_articles', 'article')
             ->once();
 
         $commandTester = new CommandTester($this->command);
-        $commandTester->execute([
+        $commandTester->execute(array(
             'path' => __DIR__,
-        ]);
+        ));
     }
 }
